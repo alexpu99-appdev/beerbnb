@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Bar #<%= @the_bar.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/bars">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_bar/<%= @the_bar.id %>">
+          Delete bar
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Photo
+      </dt>
+      <dd>
+        <%= @the_bar.photo %>
+      </dd>
+
+      <dt>
+        Website
+      </dt>
+      <dd>
+        <%= @the_bar.website %>
+      </dd>
+
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @the_bar.location %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_bar.name %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_bar.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_bar.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit bar
+    </h2>
+
+    <form action="/modify_bar/<%= @the_bar.id %>"  method="post" >
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo" value="<%= @the_bar.photo %>">
+      </div>
+
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website" value="<%= @the_bar.website %>">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location" value="<%= @the_bar.location %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_bar.name %>">
+      </div>
+
+      <button>
+        Update bar
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

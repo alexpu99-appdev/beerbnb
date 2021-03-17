@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Liked trip #<%= @the_liked_trip.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/liked_trips">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_liked_trip/<%= @the_liked_trip.id %>">
+          Delete liked trip
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_liked_trip.user_id %>
+      </dd>
+
+      <dt>
+        Trip
+      </dt>
+      <dd>
+        <%= @the_liked_trip.trip_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_liked_trip.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_liked_trip.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit liked trip
+    </h2>
+
+    <form action="/modify_liked_trip/<%= @the_liked_trip.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_liked_trip.user_id %>">
+      </div>
+
+      <div>
+        <label for="trip_id_box">
+          Trip
+        </label>
+
+        <input type="text" id="trip_id_box" name="query_trip_id" value="<%= @the_liked_trip.trip_id %>">
+      </div>
+
+      <button>
+        Update liked trip
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

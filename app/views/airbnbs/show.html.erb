@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Airbnb #<%= @the_airbnb.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/airbnbs">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_airbnb/<%= @the_airbnb.id %>">
+          Delete airbnb
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @the_airbnb.location %>
+      </dd>
+
+      <dt>
+        Price
+      </dt>
+      <dd>
+        <%= @the_airbnb.price %>
+      </dd>
+
+      <dt>
+        Website
+      </dt>
+      <dd>
+        <%= @the_airbnb.website %>
+      </dd>
+
+      <dt>
+        Photo
+      </dt>
+      <dd>
+        <%= @the_airbnb.photo %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_airbnb.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_airbnb.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit airbnb
+    </h2>
+
+    <form action="/modify_airbnb/<%= @the_airbnb.id %>"  method="post" >
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location" value="<%= @the_airbnb.location %>">
+      </div>
+
+      <div>
+        <label for="price_box">
+          Price
+        </label>
+
+        <input type="text" id="price_box" name="query_price" value="<%= @the_airbnb.price %>">
+      </div>
+
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website" value="<%= @the_airbnb.website %>">
+      </div>
+
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo" value="<%= @the_airbnb.photo %>">
+      </div>
+
+      <button>
+        Update airbnb
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

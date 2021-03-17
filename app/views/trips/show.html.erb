@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Trip #<%= @the_trip.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/trips">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_trip/<%= @the_trip.id %>">
+          Delete trip
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Airbnb
+      </dt>
+      <dd>
+        <%= @the_trip.airbnb_id %>
+      </dd>
+
+      <dt>
+        Bar
+      </dt>
+      <dd>
+        <%= @the_trip.bar_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_trip.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_trip.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit trip
+    </h2>
+
+    <form action="/modify_trip/<%= @the_trip.id %>"  method="post" >
+      <div>
+        <label for="airbnb_id_box">
+          Airbnb
+        </label>
+
+        <input type="text" id="airbnb_id_box" name="query_airbnb_id" value="<%= @the_trip.airbnb_id %>">
+      </div>
+
+      <div>
+        <label for="bar_id_box">
+          Bar
+        </label>
+
+        <input type="text" id="bar_id_box" name="query_bar_id" value="<%= @the_trip.bar_id %>">
+      </div>
+
+      <button>
+        Update trip
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
