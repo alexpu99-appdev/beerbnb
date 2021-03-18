@@ -1,27 +1,60 @@
 <div>
   <div>
-    <h1>
-      Yes or No?
+    <h1 >
+      Want to save this Beerbnb?
     </h1>
   </div>
 </div>
 
 <hr>
 
+<!-- Equal width cols, same on all screen sizes -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <p style="text-align:center;"><img src="<%= @beerbnb_aphoto %>" alt="airbnb.img"></p>
+    </div>
+    <div class="col">
+        <p style="text-align:center;"><img src="<%= @beerbnb_bphoto %>" alt="bar.img"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+          <p style="text-align:left;">Price: <%= @beerbnb_aprice %> </p>
+    </div>
+    <div class="col">
+          <p style="text-align:left;">Name: <%= @beerbnb_bname %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+          <p style="text-align:left;"> Location: <%= @beerbnb_alocation %> </p>
+    </div>
+    <div class="col">
+          <p style="text-align:left;"> Location: <%= @beerbnb_blocation %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+          <p style="text-align:left;"> Website: <%= @beerbnb_aweb %> </p>
+    </div>
+    <div class="col">
+          <p style="text-align:left;"> Website: <%= @beerbnb_bweb %></p>
+    </div>
+  </div>
+
+</div>
+
+
 <div>
   <div>
-    <h2 class ="text-center">
-      Like to save this Beerbnb!
-    </h2>
-
-    <p style="text-align:center;"><img src="<%= @beerbnb %>" alt="beerbnb.img"></p>
 
     <div class ="text-center">
-      <form action="/insert_trip" method="post">
-        <button type="button" class="btn btn-success">Like</button>
+      <form action="/insert_liked_trip" method="post">
+        <button type="button" class="btn btn-success">Yes</button>
       </form>
-      <form action="/">
-        <button type="button" class="btn btn-danger">Nope</button>
+      <form action="/new_trip">
+        <button type="button" class="btn btn-danger">No</button>
       </form>
     </div>
   </div>

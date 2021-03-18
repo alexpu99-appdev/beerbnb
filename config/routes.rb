@@ -51,7 +51,7 @@ Rails.application.routes.draw do
   # Routes for the Trip resource:
 
   # CREATE
-  post("/insert_trip", { :controller => "trips", :action => "create" })
+  post("/new_trip", { :controller => "trips", :action => "create" })
           
   # READ
   

@@ -1,0 +1,30 @@
+<div>
+  <div>
+    <h1>
+      Yes or No?
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2 class ="text-center">
+      Want to save this Beerbnb?
+    </h2>
+
+    <p style="text-align:center;"><img src="<%= @beerbnb_aphoto %>" alt="airbnb.img"></p>
+
+    <p style="text-align:center;"><img src="<%= @beerbnb_bphoto %>" alt="bar.img"></p>
+
+    <div class ="text-center">
+      <form action="/insert_liked_trip" method="post">
+        <button type="button" class="btn btn-success">Yes</button>
+      </form>
+      <form action="/new_trip">
+        <button type="button" class="btn btn-danger">No</button>
+      </form>
+    </div>
+  </div>
+</div>

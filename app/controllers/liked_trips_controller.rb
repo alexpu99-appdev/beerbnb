@@ -1,8 +1,8 @@
 class LikedTripsController < ApplicationController
   def index
-    matching_liked_trips = LikedTrip.all
+    users_liked_trips = LikedTrip.where({ :user_id => @current_user.id })
 
-    @list_of_liked_trips = matching_liked_trips.order({ :created_at => :desc })
+    @list_of_liked_trips = users_liked_trips.order({ :created_at => :desc })
 
     render({ :template => "liked_trips/index.html.erb" })
   end
