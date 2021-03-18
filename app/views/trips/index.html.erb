@@ -12,34 +12,34 @@
 <div class="container">
   <div class="row">
     <div class="col">
-        <p style="text-align:center;"><img src="<%= @beerbnb_aphoto %>" alt="airbnb.img"></p>
+        <p style="text-align:center;"><img style="max-width: 450px; max-height: 300px" src="<%= @beerbnb_air.photo %>" alt="airbnb.img"></p>
     </div>
     <div class="col">
-        <p style="text-align:center;"><img src="<%= @beerbnb_bphoto %>" alt="bar.img"></p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-          <p style="text-align:left;">Price: <%= @beerbnb_aprice %> </p>
-    </div>
-    <div class="col">
-          <p style="text-align:left;">Name: <%= @beerbnb_bname %></p>
+        <p style="text-align:center;"><img style="max-width: 450px; max-height: 300px" src="<%= @beerbnb_bar.photo %>" alt="bar.img"></p>
     </div>
   </div>
   <div class="row">
     <div class="col">
-          <p style="text-align:left;"> Location: <%= @beerbnb_alocation %> </p>
+          <p style="text-align:left;">Price: $<%= @beerbnb_air.price %>0 </p>
     </div>
     <div class="col">
-          <p style="text-align:left;"> Location: <%= @beerbnb_blocation %></p>
+          <p style="text-align:left;">Name: <%= @beerbnb_bar.name %></p>
     </div>
   </div>
   <div class="row">
     <div class="col">
-          <p style="text-align:left;"> Website: <%= @beerbnb_aweb %> </p>
+          <p style="text-align:left;"> Location: <%= @beerbnb_air.location %> </p>
     </div>
     <div class="col">
-          <p style="text-align:left;"> Website: <%= @beerbnb_bweb %></p>
+          <p style="text-align:left;"> Location: <%= @beerbnb_bar.location %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+          <p style="text-align:left;"> <a href="<%= @beerbnb_air.website %>"> Airbnb Details </p>
+    </div>
+    <div class="col">
+          <p style="text-align:left;"> <a href="<%= @beerbnb_bar.website %>"> Bar Details </p>
     </div>
   </div>
 
