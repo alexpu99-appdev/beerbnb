@@ -35,26 +35,33 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
-          <p style="text-align:left;"> <a href="<%= @beerbnb_air.website %>"> Airbnb Details </p>
+    <div style="text-align:left;" class="col">
+      <a href="<%= @beerbnb_air.website %>"> Airbnb Details </a>
     </div>
-    <div class="col">
-          <p style="text-align:left;"> <a href="<%= @beerbnb_bar.website %>"> Bar Details </p>
+    <div style="text-align:left;" class="col">
+      <a href="<%= @beerbnb_bar.website %>"> Bar Details </a>
     </div>
   </div>
 
 </div>
 
+<hr>
 
-<div>
-  <div>
-
-    <div class ="text-center">
-      <form action="/insert_liked_trip" method="post">
-        <button type="button" class="btn btn-success">Yes</button>
+<br>
+<div class="container">
+  <div class="row">
+    <div style="text-align:right;" class="col">
+      <form action="/new_trip" method="post">
+        <button type="button" class="btn btn-danger">
+          No
+        </button>
       </form>
-      <form action="/new_trip">
-        <button type="button" class="btn btn-danger">No</button>
+    </div>
+    <div class="col">
+      <form action="/insert_liked_trip" method="post">
+        <button type="button" class="btn btn-success">
+          Yes
+        </button>
       </form>
     </div>
   </div>
