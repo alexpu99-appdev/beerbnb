@@ -13,20 +13,23 @@ class LikedTripsController < ApplicationController
     matching_liked_trips = LikedTrip.where({ :id => the_id })
 
     @the_liked_trip = matching_liked_trips.at(0)
+    @beerbnb = Trip.where({ :id => @the_liked_trip.trip_id }).at(0)
+    @beerbnb_air = Airbnb.where({ :id => @beerbnb.airbnb_id }).at(0)
+    @beerbnb_bar = Bar.where({ :id => @beerbnb.bar_id }).at(0)   
 
     render({ :template => "liked_trips/show.html.erb" })
   end
 
   def create
     the_liked_trip = LikedTrip.new
-    the_liked_trip.user_id = params.fetch("query_user_id")
-    the_liked_trip.trip_id = params.fetch("query_trip_id")
+    the_liked_trip.user_id = @current_user.id
+    the_liked_trip.trip_id = params.fetch("query_trip_id").to_i
 
     if the_liked_trip.valid?
       the_liked_trip.save
-      redirect_to("/liked_trips", { :notice => "Liked trip created successfully." })
+      redirect_to("/", { :notice => "Your Beerbnb has been saved!" })
     else
-      redirect_to("/liked_trips", { :notice => "Liked trip failed to create successfully." })
+      redirect_to("/", { :notice => "Oops! Your Beerbnb failed to save successfully!" })
     end
   end
 

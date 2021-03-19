@@ -13,8 +13,9 @@ class TripsController < ApplicationController
     
     sample_trip = Trip.all.sample
 
-    @beerbnb_air = Airbnb.where({ :id => sample_trip.airbnb_id }).at(0)
-    @beerbnb_bar = Bar.where({ :id => sample_trip.bar_id }).at(0)
+    @beerbnb = sample_trip
+    @beerbnb_air = Airbnb.where({ :id => @beerbnb.airbnb_id }).at(0)
+    @beerbnb_bar = Bar.where({ :id => @beerbnb.bar_id }).at(0)
 
       # @list_of_trips = matching_trips.order({ :created_at => :desc })
 

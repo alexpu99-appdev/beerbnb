@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of your liked trips
+      List of your liked Beerbnbs
     </h1>
   </div>
 </div>
@@ -14,9 +14,8 @@
       Discover more Beerbnbs
     </h2>
 
-    <form action="/new_trip" method="post">
-
-      <button>
+    <form action="/beerme">
+      <button type="submit" class="btn btn-success">
         Let's Go
       </button>
     </form>
@@ -28,49 +27,31 @@
   <div>
     <table>
       <tr>
-        <th>
-          ID
+        <th style="text-align:center;">
+          Airbnb
+        </th>
+
+        <th style="text-align:center;">
+          Bar
         </th>
 
         <th>
-          User
-        </th>
-
-        <th>
-          Trip
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
+          Bar Name
         </th>
       </tr>
 
       <% @list_of_liked_trips.each do |a_liked_trip| %>
       <tr>
         <td>
-          <%= a_liked_trip.id %>
+          <a><img style="max-width: 225px; max-height: 150px" src="<%= Airbnb.where({ :id => Trip.where({ :id => a_liked_trip.trip_id }).at(0).airbnb_id }).at(0).photo %>" alt="airbnb.img"></a>
         </td>
 
         <td>
-          <%= a_liked_trip.user_id %>
+          <a><img style="max-width: 225px; max-height: 150px" src="<%= Bar.where({ :id => Trip.where({ :id => a_liked_trip.trip_id }).at(0).bar_id }).at(0).photo %>" alt="bar.img"></a>
         </td>
 
         <td>
-          <%= a_liked_trip.trip_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_liked_trip.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_liked_trip.updated_at) %> ago
+          <%= Bar.where({ :id => Trip.where({ :id => a_liked_trip.trip_id }).at(0).bar_id }).at(0).name %>
         </td>
 
         <td>

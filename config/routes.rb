@@ -40,6 +40,8 @@ Rails.application.routes.draw do
 
   # SIGN IN FORM
   get("/user_profile_sign_in", { :controller => "user_profile_authentication", :action => "sign_in_form" })
+   get("/", { :controller => "user_profile_authentication", :action => "sign_in_form" })
+
   # AUTHENTICATE AND STORE COOKIE
   post("/user_profile_verify_credentials", { :controller => "user_profile_authentication", :action => "create_cookie" })
   
@@ -55,8 +57,7 @@ Rails.application.routes.draw do
           
   # READ
   
-  get("/", { :controller => "trips", :action => "index" })
-  get("/trips", { :controller => "trips", :action => "index" })
+  get("/beerme", { :controller => "trips", :action => "index" })
   
   get("/trips/:path_id", { :controller => "trips", :action => "show" })
   
