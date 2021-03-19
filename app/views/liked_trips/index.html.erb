@@ -12,13 +12,12 @@
   <div>
     <h2>
       Discover more Beerbnbs
-    </h2>
-
     <form action="/beerme">
       <button type="submit" class="btn btn-success">
         Let's Go
       </button>
     </form>
+    </h2>
   </div>
 </div>
 
@@ -51,13 +50,13 @@
         <%= Bar.where({ :id => Trip.where({ :id => a_liked_trip.trip_id }).at(0).bar_id }).at(0).name %>
       </td>
       <td>
-        <a type="button" class="btn btn-info" href="/liked_trips/<%= a_liked_trip.id %>">
+        <a type="button" class="btn btn-info btn-sm" href="/liked_trips/<%= a_liked_trip.id %>">
           Show details
         </a>
       </td>
       <td>
         <a href="/delete_liked_trip/<%= a_liked_trip.id %>">
-          <button type="button" class="btn btn-danger">
+          <button type="button" class="btn btn-danger btn-sm">
              Delete this Beerbnb
           </button>     
         </a>

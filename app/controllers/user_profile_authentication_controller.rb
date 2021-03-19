@@ -3,7 +3,11 @@ class UserProfileAuthenticationController < ApplicationController
   skip_before_action(:force_user_sign_in, { :only => [:sign_up_form, :create, :sign_in_form, :create_cookie] })
 
   def sign_in_form
-    render({ :template => "user_authentication/sign_in.html.erb" })
+    if @current_user != nil
+      redirect_to("beernme", { :notice => "Welcome back" + @current_user.first_name + "!"})
+    else
+      render({ :template => "user_authentication/sign_in.html.erb" })
+    end
   end
 
   def create_cookie
@@ -33,7 +37,7 @@ class UserProfileAuthenticationController < ApplicationController
   end
 
   def sign_up_form
-    render({ :template => "user_profile_authentication/sign_up.html.erb" })
+    render({ :template => "user_authentication/sign_up.html.erb" })
   end
 
   def create
