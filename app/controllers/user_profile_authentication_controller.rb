@@ -1,9 +1,9 @@
 class UserProfileAuthenticationController < ApplicationController
   # Uncomment this if you want to force user_profiles to sign in before any other actions
-  skip_before_action(:force_user_profile_sign_in, { :only => [:sign_up_form, :create, :sign_in_form, :create_cookie] })
+  skip_before_action(:force_user_sign_in, { :only => [:sign_up_form, :create, :sign_in_form, :create_cookie] })
 
   def sign_in_form
-    render({ :template => "user_profile_authentication/sign_in.html.erb" })
+    render({ :template => "user_authentication/sign_in.html.erb" })
   end
 
   def create_cookie
@@ -19,7 +19,7 @@ class UserProfileAuthenticationController < ApplicationController
       else
         session[:user_profile_id] = user_profile.id
       
-        redirect_to("/", { :notice => "Signed in successfully." })
+        redirect_to("/beerme", { :notice => "Signed in successfully." })
       end
     else
       redirect_to("/user_profile_sign_in", { :alert => "No user_profile with that email address." })
@@ -49,7 +49,7 @@ class UserProfileAuthenticationController < ApplicationController
     if save_status == true
       session[:user_profile_id] = @user_profile.id
    
-      redirect_to("/", { :notice => "User profile account created successfully."})
+      redirect_to("/beerme", { :notice => "User profile account created successfully."})
     else
       redirect_to("/user_profile_sign_up", { :alert => "User profile account failed to create successfully."})
     end
@@ -70,7 +70,7 @@ class UserProfileAuthenticationController < ApplicationController
     if @user_profile.valid?
       @user_profile.save
 
-      redirect_to("/", { :notice => "User profile account updated successfully."})
+      redirect_to("/beerme", { :notice => "User profile account updated successfully."})
     else
       render({ :template => "user_profile_authentication/edit_profile_with_errors.html.erb" })
     end

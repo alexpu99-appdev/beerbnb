@@ -27,9 +27,9 @@ class LikedTripsController < ApplicationController
 
     if the_liked_trip.valid?
       the_liked_trip.save
-      redirect_to("/", { :notice => "Your Beerbnb has been saved!" })
+      redirect_to("/beerme", { :notice => "Your Beerbnb has been saved!" })
     else
-      redirect_to("/", { :notice => "Oops! Your Beerbnb failed to save successfully!" })
+      redirect_to("/beerme", { :notice => "Oops! Your Beerbnb failed to save successfully!" })
     end
   end
 

@@ -23,46 +23,48 @@
 </div>
 
 <hr>
-<div>
-  <div>
-    <table>
-      <tr>
-        <th style="text-align:center;">
-          Airbnb
-        </th>
 
-        <th style="text-align:center;">
-          Bar
-        </th>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>Airbnb</th>
+      <th>Bar</th>
+      <th>Bar Name</th>
+    </tr>
+  </thead>
 
-        <th>
-          Bar Name
-        </th>
-      </tr>
+  <% @list_of_liked_trips.each do |a_liked_trip| %>
 
-      <% @list_of_liked_trips.each do |a_liked_trip| %>
-      <tr>
-        <td>
-          <a><img style="max-width: 225px; max-height: 150px" src="<%= Airbnb.where({ :id => Trip.where({ :id => a_liked_trip.trip_id }).at(0).airbnb_id }).at(0).photo %>" alt="airbnb.img"></a>
-        </td>
-
-        <td>
-          <a><img style="max-width: 225px; max-height: 150px" src="<%= Bar.where({ :id => Trip.where({ :id => a_liked_trip.trip_id }).at(0).bar_id }).at(0).photo %>" alt="bar.img"></a>
-        </td>
-
-        <td>
-          <%= Bar.where({ :id => Trip.where({ :id => a_liked_trip.trip_id }).at(0).bar_id }).at(0).name %>
-        </td>
-
-        <td>
-          <a href="/liked_trips/<%= a_liked_trip.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
+  <tbody>
+    <tr>
+      <th scope="row">
+        <a>
+          <img style="max-width: 225px; max-height: 150px" src="<%= Airbnb.where({ :id => Trip.where({ :id => a_liked_trip.trip_id }).at(0).airbnb_id }).at(0).photo %>" alt="airbnb.img">
+        </a>
+      </th>
+      <td>
+        <a>
+          <img style="max-width: 225px; max-height: 150px" src="<%= Bar.where({ :id => Trip.where({ :id => a_liked_trip.trip_id }).at(0).bar_id }).at(0).photo %>" alt="bar.img">
+        </a>
+      </td>
+      <td>
+        <%= Bar.where({ :id => Trip.where({ :id => a_liked_trip.trip_id }).at(0).bar_id }).at(0).name %>
+      </td>
+      <td>
+        <a type="button" class="btn btn-info" href="/liked_trips/<%= a_liked_trip.id %>">
+          Show details
+        </a>
+      </td>
+      <td>
+        <a href="/delete_liked_trip/<%= a_liked_trip.id %>">
+          <button type="button" class="btn btn-danger">
+             Delete this Beerbnb
+          </button>     
+        </a>
+      </td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
 
 <hr>
